@@ -1,0 +1,1 @@
+P(4);B(8192)#Developer;id_developer;nama_developer;skill;domisili_developer;R(128);n(100000);V(12)#Client;id_client;nama_client;requierement;domisili_client;R(64);n(80000);V(8)#Project;id_developer;id_client;job;fee;R(32);n(40000);V(7)

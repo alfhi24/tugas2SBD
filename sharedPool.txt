@@ -1,0 +1,30 @@
+Query : select * from Developer where id_developer = 900;
+PROJECTION id_developer, nama_developer, skill, domisili_developer,  -- on the fly 
+SELECTION id_developer = 900; -- A2 
+Developer
+Cost : 3 block
+ 
+Query : select id_client,nama_client from Client where id_client = 99;
+PROJECTION id_client,nama_client -- on the fly 
+SELECTION id_client = 99; -- A2 
+Client
+Cost : 2 block
+ 
+Query : select id_developer,job,fee from Developer join Project using (id_developer);
+PROJECTION id_developer,job,fee -- on the fly 
+    JOIN Developer.id_developer = Project.id_developer -- Block Nested Loop Join 
+Developer     Project
+Cost (worst case) : 15701563 block
+ 
+Query : select nama_developer from Developer where domisili_developer = "bandung";
+PROJECTION nama_developer -- on the fly 
+SELECTION domisili_developer = "bandung"; -- A2 
+Developer
+Cost : 3 block
+ 
+Query : select nama_developer,fee from Developer join Project using (id_developer);
+PROJECTION nama_developer,fee -- on the fly 
+    JOIN Developer.id_developer = Project.id_developer -- Block Nested Loop Join 
+Developer     Project
+Cost (worst case) : 15701563 block
+ 
